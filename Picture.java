@@ -367,7 +367,30 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
+//written by Jonathan Hsing
 
+ //This method will mirror an image from top to bottom
+  public void mirrorToptoBottom(){
+    //create a 2D array of pixels
+    Pixel[][]pixels = this.getPixels2D();
+    //create top pixel variable
+    Pixel topPixel = null;
+    //create bottom pixel variable
+    Pixel bottomPixel = null;
+
+    //loop through half of the rows
+    for(int a = 0; a < pixels.length/2; a++){
+      //loop through all the columns 
+      for(int b = 0; b < pixels[0].length; b++){
+        //set top pixel to pixel
+        topPixel = pixels[a][b];
+        //set bottom pixel to mirrored
+        bottomPixel = pixels[pixels.length - 1 - a][b];
+        //set bottom pixel to top color
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
    
 
 
